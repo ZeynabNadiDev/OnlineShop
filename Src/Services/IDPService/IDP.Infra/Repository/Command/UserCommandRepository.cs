@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace IDP.Infra.Repository.Command
 {
-    public class UserCommandRepository : BaseCommandRepository<User, ShopDBContext>,IUserCommandRepository
+    public class UserCommandRepository : BaseCommandRepository<User, IDPCommandDbContext>,IUserCommandRepository
     {
-        public UserCommandRepository(ShopDBContext context) : base(context)
+        public UserCommandRepository(IDPCommandDbContext context) : base(context)
         {
         }
         

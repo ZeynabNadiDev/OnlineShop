@@ -31,7 +31,7 @@ namespace IDP.Api
             builder.Services.AddScoped<IUserCommandRepository, UserCommandRepository>();
             builder.Services.AddScoped<IUserQueryRepository, UserQueryRepository>();
             builder.Services.AddScoped<IOtpRedisQueryRepository, OtpRedisQueryRepository>();
-            builder.Services.AddScoped<IUnitOfWork,UnitOfWork<ShopDBContext>>();
+            builder.Services.AddScoped<IUnitOfWork,UnitOfWork<IDPCommandDbContext>>();
 
             builder.Services.AddApiVersioning(options =>
             {
@@ -51,12 +51,11 @@ namespace IDP.Api
 
             Auth.Extensions.AddJwt(builder.Services, builder.Configuration);
 
-            builder.Services.AddDbContext<ShopDBContext>(options =>
-            {
-                options.UseSqlServer(
-                    builder.Configuration.GetConnectionString("DefaultConnection")
-                );
-            });
+            builder.Services.AddDbContext<IDPCommandDbContext>(options =>
+     options.UseSqlServer(builder.Configuration.GetConnectionString("CommandConnection")));
+
+            builder.Services.AddDbContext<IDPQueryDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("QueryConnection")));
             builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
             {
                 var configuration = builder.Configuration.GetConnectionString("Redis");

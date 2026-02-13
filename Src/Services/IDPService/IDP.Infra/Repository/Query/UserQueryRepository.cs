@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace IDP.Infra.Repository.Query
 {
-    public class UserQueryRepository : BaseQueryRepository<User, ShopDBContext>,IUserQueryRepository
+    public class UserQueryRepository : BaseQueryRepository<User, IDPQueryDbContext>,IUserQueryRepository
     {
-        public UserQueryRepository(ShopDBContext context) : base(context)
+        public UserQueryRepository(IDPQueryDbContext context) : base(context)
         {
         }
 

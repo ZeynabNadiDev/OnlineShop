@@ -11,9 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IDP.Infra.Migrations
 {
-    [DbContext(typeof(ShopDBContext))]
-    [Migration("20260212160607_UpdateUserForOtpFlow")]
-    partial class UpdateUserForOtpFlow
+    [DbContext(typeof(IDPCommandDbContext))]
+    [Migration("20260213215127_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

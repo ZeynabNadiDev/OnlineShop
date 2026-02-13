@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Infra", "Src\Common\Shared\Shared.Infra\Shared.Infra.csproj", "{40A788A1-3524-4142-BCD9-E41F6D696702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Kernel", "Src\Common\Shared\Shared.Kernel\Shared.Kernel.csproj", "{13FA1428-6ADB-42F0-9052-A7EF63504D55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotficationService", "NotficationService", "{D9BB1065-E05D-4C06-95D9-340A1A777718}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,7 @@ Global
 		{40FD0F6D-774B-4991-8AAC-44D6977AD170} = {F8DC0C5C-2F10-4ED9-8B3C-9B9CA87575A4}
 		{40A788A1-3524-4142-BCD9-E41F6D696702} = {40FD0F6D-774B-4991-8AAC-44D6977AD170}
 		{13FA1428-6ADB-42F0-9052-A7EF63504D55} = {40FD0F6D-774B-4991-8AAC-44D6977AD170}
+		{D9BB1065-E05D-4C06-95D9-340A1A777718} = {25A7CA34-58E5-4E52-BA06-8F284617B074}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05E2EE8E-066E-47F0-8AE7-427AAFD98771}
