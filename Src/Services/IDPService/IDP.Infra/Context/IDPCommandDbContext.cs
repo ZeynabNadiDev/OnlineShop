@@ -20,9 +20,7 @@ namespace IDP.Infra.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(
-                typeof(IDPCommandDbContext).Assembly
-            );
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

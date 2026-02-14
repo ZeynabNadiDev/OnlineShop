@@ -5,6 +5,8 @@ using IDP.Domain.IRepository.Command;
 using MediatR;
 using IDP.Domain.Entities;
 using Shared.Domain.Interface.UOW;
+using DotNetCore.CAP;
+using EventMessages.Events;
 
 namespace IDP.Application.Handlers.Command.Auth
 {
@@ -14,15 +16,22 @@ namespace IDP.Application.Handlers.Command.Auth
         private readonly IUserQueryRepository _userQueryRepository;
         private readonly IUserCommandRepository _userCommandRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public AuthCommandHandler(IOtpRedisRepository otpRedisRepository,
+        private readonly IPublishEndPoint _publishEndPoint;
+        //private readonly ICapPublisher _capPublisher;
+
+        internal AuthCommandHandler(IOtpRedisRepository otpRedisRepository,
             IUserQueryRepository userQueryRepository,
             IUserCommandRepository userCommandRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,IPublishEndPoint publishEndPoint)
         {
           _otpRedisRepository = otpRedisRepository;
             _userQueryRepository = userQueryRepository;
             _userCommandRepository = userCommandRepository;
             _unitOfWork = unitOfWork;
+
+            _publishEndPoint = publishEndPoint;
+
+
         }
         public async Task <bool>  Handle(AuthCommand request, CancellationToken cancellationToken)
         {
@@ -45,7 +54,17 @@ namespace IDP.Application.Handlers.Command.Auth
                 OtpCode = OtpGenerator.Generate(),
                 IsUse = false
             });
+            //await _capPublisher.PublishAsync<AuthCommand>("otpevent", new OtpEvent
+            //{
+            //    MobileNumber = request.MobileNumber, OtpCode = OtpGenerator.Generate()
+
+            //});
+            
             return true;
         }
+    }
+
+    internal interface IPublishEndPoint
+    {
     }
 }

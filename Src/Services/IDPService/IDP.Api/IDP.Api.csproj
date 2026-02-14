@@ -11,6 +11,11 @@
     <PackageReference Include="Asp.Versioning.Http" Version="8.1.1" />
     <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.1" />
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+    <PackageReference Include="DotNetCore.CAP.SqlServer" Version="10.0.1" />
+    <PackageReference Include="MassTransit" Version="9.0.1" />
+    <PackageReference Include="MassTransit.EntityFrameworkCore" Version="9.0.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="9.0.1" />
+    <PackageReference Include="MassTransit.SqlTransport.SqlServer" Version="9.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -27,6 +32,7 @@
     <ProjectReference Include="..\IDP.Application\IDP.Application.csproj" />
     <ProjectReference Include="..\IDP.Domain\IDP.Domain.csproj" />
     <ProjectReference Include="..\IDP.Infra\IDP.Infra.csproj" />
+    <ProjectReference Include="..\IDP.Ioc\IDP.Ioc.csproj" />
   </ItemGroup>
 
 </Project>
