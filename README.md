@@ -74,3 +74,78 @@ Both **MassTransit** and **CAP** are implemented, each serving a different archi
 - LoginSucceededEvent
 
 **Flow**
+- Identity Service publishes integration events using MassTransit
+- Events are delivered via RabbitMQ
+- Other services (e.g. Notification) will subscribe and react accordingly
+
+---
+
+### CAP – Transactional Messaging (Outbox Pattern)
+
+**Purpose**
+- Ensures consistency between database changes and message publishing
+
+**Usage**
+- Used when an event must be published atomically with a database transaction
+- Prevents message loss in failure scenarios
+
+**Flow**
+- Business operation is executed
+- Database transaction is committed
+- Event is stored and published reliably via CAP
+
+---
+
+## 🧱 Technologies Used
+
+- .NET / ASP.NET Core Web API
+- C#
+- Clean Architecture
+- Microservices Architecture
+- SQL Server
+- Entity Framework Core
+- Redis
+- RabbitMQ
+- MassTransit
+- CAP
+- JWT Authentication
+- Docker (planned)
+- CI/CD (planned)
+
+---
+
+## ▶️ Running the Project
+
+> ⚠️ The project is under active development.  
+> Currently, only the **Identity Service** is available.
+
+### Prerequisites
+- .NET SDK
+- SQL Server
+- Redis
+- RabbitMQ
+
+### Steps
+1. Clone the repository
+2. Configure connection strings in `appsettings.json`
+3. Run database migrations
+4. Start required infrastructure services (SQL Server, Redis, RabbitMQ)
+5. Run the Identity Service
+
+---
+
+## 🛣️ Roadmap
+
+- Add Notification Service
+- Add Order, Catalog, and Payment services
+- Introduce gRPC for internal communication
+- Add Docker Compose
+- Implement CI/CD pipeline
+- Improve observability (logging, tracing, metrics)
+
+---
+
+## 👤 Author
+
+**Zeynab Nadi**  
+Backend Developer (.NET)
